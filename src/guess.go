@@ -26,6 +26,7 @@ func main() {
 
 	fmt.Println("I have random number. Can you guess it?")
 
+	//lifecycle loop
 	for lives := 0; lives < 10; lives++ {
 		fmt.Println("CHOOSE YOU NUMBER")
 		input, err := reader.ReadString('\n')
@@ -33,12 +34,15 @@ func main() {
 			log.Fatal(err)
 		}
 
+		//parse int from string
 		input = strings.TrimSpace(input)
 		userNum, err := strconv.Atoi(input)
 		if err != nil {
 			log.Fatal(err)
 		}
 
+
+		//check user number
 		if userNum == randNum {
 			success = true
 			fmt.Println("YOU WIN")
